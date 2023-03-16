@@ -17,10 +17,11 @@ const devConfig = {
     })  
   ],
   entry: {
-    review: './src/index.js'
+    main: './src/index.js',
+    dev: './src/dev-root.js',
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].js',
   }
 }
 
