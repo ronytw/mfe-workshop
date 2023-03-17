@@ -20,7 +20,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "styled-components": "5.3.3",
-    "ui-components": "git@github.com:Vishalsh/ui-components.git"
+    "ui-components": "github:Vishalsh/ui-components"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
