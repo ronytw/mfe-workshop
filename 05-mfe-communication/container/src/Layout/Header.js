@@ -31,6 +31,10 @@ export default () => {
           </Link>
           <S.CartLink to="/cart">
             Cart
+            {
+              productsInCart && productsInCart.length > 0 &&
+              <S.CartCount>{productsInCart.length}</S.CartCount>
+            }
           </S.CartLink>
         </S.Content>
       </div>
