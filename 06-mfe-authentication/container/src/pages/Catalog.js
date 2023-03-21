@@ -8,12 +8,14 @@ export default function Catalog() {
   }
 
   useEffect(() => {
-    if (window && document) {
+    if (window && document && !document.getElementById('app-catalog')) {
       const script = document.createElement('script');
       script.id = 'app-catalog';
-      script.src = 'http://localhost:8081/main.js';
+      script.src = 'http://localhost:8081/main.bundle.js';
       script.onload = renderMicrofrontend;
       document.head.appendChild(script);
+    } else {
+      renderMicrofrontend();
     }
   }, []);
 

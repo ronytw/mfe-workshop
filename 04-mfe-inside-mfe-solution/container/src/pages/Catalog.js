@@ -14,6 +14,8 @@ export default function Catalog() {
       script.src = 'http://localhost:8081/main.js';
       script.onload = renderMicrofrontend;
       document.head.appendChild(script);
+    } else {
+      renderMicrofrontend();
     }
   }, []);
 

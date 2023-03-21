@@ -1,19 +1,23 @@
 import React, { useRef, useEffect } from 'react';
 
-export default function Catalog() {
+export default function Cart({ accessToken }) {
   const ref = useRef(null);
 
+  console.log(accessToken);
+
   const renderMicrofrontend = () => {
-    window.mountCatalogMfe(ref.current);
+    window.mountCartMfe(ref.current, accessToken);
   }
 
   useEffect(() => {
-    if (window && document) {
+    if (window && document && !document.getElementById('app-cart')) {
       const script = document.createElement('script');
-      script.id = 'app-catalog';
-      script.src = 'http://localhost:8081/main.js';
+      script.id = 'app-cart';
+      script.src = 'http://localhost:8082/main.bundle.js';
       script.onload = renderMicrofrontend;
       document.head.appendChild(script);
+    } else {
+      renderMicrofrontend();
     }
   }, []);
 

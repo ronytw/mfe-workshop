@@ -1,19 +1,21 @@
 import React, { useRef, useEffect } from 'react';
 
-export default function Catalog() {
+export default function User({ onLoginSuccessful }) {
   const ref = useRef(null);
 
   const renderMicrofrontend = () => {
-    window.mountCatalogMfe(ref.current);
+    window.mountUserMfe(ref.current, onLoginSuccessful);
   }
 
   useEffect(() => {
-    if (window && document) {
+    if (window && document && !document.getElementById('app-user')) {
       const script = document.createElement('script');
-      script.id = 'app-catalog';
-      script.src = 'http://localhost:8081/main.js';
+      script.id = 'app-user';
+      script.src = 'http://localhost:8084/main.bundle.js';
       script.onload = renderMicrofrontend;
       document.head.appendChild(script);
+    } else {
+      renderMicrofrontend();
     }
   }, []);
 
